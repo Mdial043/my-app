@@ -1,47 +1,45 @@
 import React from 'react'
 
 export default function DogAPI() {
-    
-  
-    const dogImage = document.getElementById('dog-img');
-    const dogButton = document.getElementById('btn-dog');
-      
-   
-    dogButton.addEventListener('click', fetchDogImage);
+
+    const [dog, setDog] = React.useState(null)
+    const [dogbtn, setDogBtnState] = React.useState(true)
+
+    // Se lance au debut de l'ouverture du fichier
+    React.useEffect(()=> {
+        console.log("Dog is running")
+    },[])
+
+    // Fait l'appel pour retourner l'image
     function fetchDogImage() {
         fetch('https://dog.ceo/api/breeds/image/random')
-          .then(response => response.json())
-          .then(data => {
-            dogImage.innerHTML = `<img src="${data.message}"/>`;
-        }) 
-      }
-          
-         
-  return (
-      <>
+            .then(response => response.json())
+            .then(data => {
+                setDog(data.message)
+            })
+    }
 
 
- <div class='header'>
-  <h1>Random Image Generator!</h1>
-</div>
-<div class="container">
-  <div class='images'>
-    <div id='dog-img'>
-      <p>Placeholder Image</p>
-    </div>
-     
-  </div>
+    return (
+        <>
+            <div class='header'>
+                <h1>Random Image Generator!</h1>
+            </div>
+            <div class="container">
+                <div class='images'>
+                    <img src={dog} placeholder="Image of a dog"/>
+                </div>
 
-  <div class='buttons'>
-    <button id='btn-dog'>Random DOG!</button> 
-   
-  </div>   
-</div>
+                <div class='buttons'>
+                    <button id='btn-dog'
+                    onClick={fetchDogImage}
+                    >
+                        Random DOG!
+                    </button>
 
- 
+                </div>
+            </div>
+        </>
+    )
 
-
-   </>
-  )
-   
 }
