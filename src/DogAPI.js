@@ -2,12 +2,9 @@ import React from 'react'
 import {FaStar} from "react-icons/fa";
 import Rating from './Rating'
 export default function DogAPI() {
-    
-    
-    const [state, Setstate]=React.useState([])
+
     const [dog, setDog] = React.useState(null)
-    const [dogbtn, setDogBtnState] = React.useState(true)
-  
+    const [dogArray, setDogArray] = React.useState([])
 
   
     // Se lance au debut de l'ouverture du fichier
@@ -22,15 +19,13 @@ export default function DogAPI() {
             .then(response => response.json())
             .then(data => {
                 setDog(data.message)
-               
-             
-               
-               
-            })
-
-            
+                setDogArray(prevDogArray => [...prevDogArray,data.message])
+            }).then(showList)
     }
-    
+
+    async function showList () {
+        await console.log(dogArray)
+    }
 
     return (
         <>
