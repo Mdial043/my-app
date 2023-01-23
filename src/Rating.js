@@ -12,7 +12,7 @@ return(
 
 <div> 
 
-{[...Array(5)].map((star, i ) =>  {  
+{[...Array(15)].map((star, i ) =>  {  
   const ratingValue= i+1;
     return (
     <label>
@@ -20,16 +20,14 @@ return(
     onClick={()=> setRating(ratingValue)}
     
     />
-<FaStar className="star"  color={ratingValue<= (hover || rating) ? "#ffc107" : "#e4e5e9"}  size={30}
+<FaStar className="star"  color={ratingValue<= (hover || rating) ? "#ffc107" : "#e4e5e9"}  size={15}
 onMouseEnter={()=> setHover(ratingValue)}
 onMouseLeave={()=>setHover(null)}
 />
     </label>);
   })}
 
-<p>{rating}
 <button onClick={()=>(window.location.reload())}>Submit</button>
-</p>
 
 </div>
 );
