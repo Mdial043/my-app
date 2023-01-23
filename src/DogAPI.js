@@ -20,12 +20,13 @@ export default function DogAPI() {
             .then(data => {
                 setDog(data.message)
                 setDogArray(prevDogArray => [...prevDogArray,data.message])
-            }).then(showList)
+            })
     }
 
-    async function showList () {
-        await console.log(dogArray)
-    }
+    //Show the new the dog list each time the list is updated
+    React.useEffect(() => {
+        console.log(dogArray)
+    }, [dogArray])
 
     return (
         <>
