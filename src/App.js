@@ -1,7 +1,11 @@
 import React from 'react'
 import DogAPI from './DogAPI'
+import Rating from './Rating'
+import  './RatingStyle.css'
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
+    
 
     // Check si l'app run
     React.useEffect(()=> {
@@ -10,10 +14,18 @@ function App() {
 
     return (
         <>
+        <div className="rand mt-5">
+
+
+
+        </div>
             <DogAPI/>
+            
         </>
     )
 }
+
+
 
 /*<div id= "img-box">
 <img id = "cat-image"><br>
