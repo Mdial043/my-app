@@ -14,11 +14,7 @@ function App() {
 
     return (
         <>
-        <div className="rand mt-5">
-
-
-
-        </div>
+       
             <DogAPI/>
             
         </>
